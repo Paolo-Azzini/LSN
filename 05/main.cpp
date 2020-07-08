@@ -76,13 +76,14 @@ int main(int argc, char* argv[]){
 /********************************************************************************************************************************************************************/
 
 double L1=1.2, L2=3;
-const int N=1000, B=1000;   //N blocks of size B
+const int N=100, B=10000;   //N blocks of size B
 
 Point p(0.5,0.5,0.5);
 array<double, N> R={0}, R2={0};
 double R_mean, R2_mean, R_err;
 Point new_point;
 int c=0;
+int iprint=100;
 ofstream out;
 
 out.open("1s_scatter.dat");
@@ -91,12 +92,14 @@ for(int i=0; i<N; i++){
 	for(int j=0; j<B; j++){
 		R[i] += p.r;
 		new_point = p + Point( rnd.Rannyu(-L1,L1) , rnd.Rannyu(-L1,L1), rnd.Rannyu(-L1,L1) );
-		if( rnd.Rannyu() < min(1. ,  P1s(new_point)) / P1s(p) ){ 
+		if( rnd.Rannyu() < min(1. ,  P1s(new_point)) / P1s(p) )
+		{
 			p = new_point;
 			c++; 
 		}
+		if(j%iprint==0)
+			out<<p.x<<" "<<p.y<<" "<<p.z<<endl;
 	}
-	out<<p.x<<" "<<p.y<<" "<<p.z<<endl;
 	R[i]/=B;
 	R2[i]=R[i]*R[i];
 }
@@ -129,8 +132,9 @@ for(int i=0; i<N; i++){
 			p = new_point;
 			c++; 
 		}
+		if(j%iprint==0)
+			out<<p.x<<" "<<p.y<<" "<<p.z<<endl;
 	}
-	out<<p.x<<" "<<p.y<<" "<<p.z<<endl;
 	R[i]/=B;
 	R2[i]=R[i]*R[i];
 

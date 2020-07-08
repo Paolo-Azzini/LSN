@@ -6,7 +6,7 @@ sed -i '1s/.*/0/' input.dat
 
 sed -i '1s/.*/1/' input.dat
 
-for i in {1..10} 
+for i in {1..15} 
 do
 	./MolDyn_NVE.exe
 done

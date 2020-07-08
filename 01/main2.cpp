@@ -62,13 +62,13 @@ for(int i=0; i<4; i++){
 
 for(int r=0; r<M; r++){
 	for(int c=0; c<4; c++){
-		out<<setw(12)<<n[c][r];
+		out<<" "<<n[c][r];
 	}
 	for(int c=0; c<4; c++){
-		out<<setw(12)<<nexp[c][r];
+		out<<" "<<nexp[c][r];
 	}
 	for(int c=0; c<4; c++){
-		out<<setw(12)<<nlore[c][r];
+		out<<" "<<nlore[c][r];
 	}
 	out<<endl;
 }

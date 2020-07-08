@@ -8,6 +8,11 @@ _/    _/  _/_/_/  _/_/_/_/ email: Davide.Galli@unimi.it
 *****************************************************************
 *****************************************************************/
 
+/* Wave function parameters */
+
+double m = 0.792001;
+double s = 0.395267;
+
 /*
 This is the definition of the physical constants. The constants have been
 put to 1 in order to work with more comfortable numbers (i.e. the potential
